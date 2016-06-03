@@ -75,8 +75,8 @@ class MainWindow(QtGui.QMainWindow, mw):
         self.bandLevelVerticalSlider_4.sliderMoved.connect(self.onBandLevelVerticalSlider_4Moved)
         self.bandStart_4.valueChanged.connect(self.onBandStartValue_4Changed)
         self.bandEnd_4.valueChanged.connect(self.onBandEndValue_4Changed)
-        self.bandLevel_4.valueChanged.connect(self.onBandLevelValue_4Changed)          
-    
+        self.bandLevel_4.valueChanged.connect(self.onBandLevelValue_4Changed)                                 
+        
     def onCalculateButtonClicked(self):
         
         #prepare parameters for remez() ... using short variable names
@@ -98,33 +98,41 @@ class MainWindow(QtGui.QMainWindow, mw):
         
         try:
             if bands==2:
-                filter = signal.remez(taps,[s1,e1,s2,e2],[v1,v2],[1,1],1,'bandpass',i)
+                filt = signal.remez(taps,[s1,e1,s2,e2],[v1,v2],[1,1],1,'bandpass',i)
             if bands==3:
-                filter = signal.remez(taps,[s1,e1,s2,e2,s3,e3],[v1,v2,v3],[1,1,1],1,'bandpass',i)
+                filt = signal.remez(taps,[s1,e1,s2,e2,s3,e3],[v1,v2,v3],[1,1,1],1,'bandpass',i)
             if bands==4:
-                filter = signal.remez(taps,[s1,e1,s2,e2,s3,e3,s4,e4],[v1,v2,v3,v4],[1,1,1,1],1,'bandpass',i)   
+                filt = signal.remez(taps,[s1,e1,s2,e2,s3,e3,s4,e4],[v1,v2,v3,v4],[1,1,1,1],1,'bandpass',i)   
         
         except ValueError:
             self.coeffsTextBrowser.setText('Failed to converge')
             self.coeffsTextBrowser.update()
             return
+        
+        if self.minPhaseRadioButton.isChecked():
+            fftsize = 8192 # needs to be fairly generous for good results !
+            maxphaseFilter=np.real(np.fft.ifft(np.exp(signal.hilbert(np.real(np.log(np.fft.fft(filt,fftsize)))))))
+            minphaseFilter=maxphaseFilter[::-1] # reverse
+            finalFilt=minphaseFilter[0:self.tapsSpinBox.value()-1]
+        else:
+            finalFilt=filt
             
         #print filter coefficients:
         txt =""" // FIR coefficients:\n"""
-        for x in filter:
+        for x in finalFilt:
             txt += '\n{:.15f},'.format(x)
         txt=txt[0:len(txt)-1] #chop off last comma
         self.coeffsTextBrowser.setText(txt)
         
         #plot impulse response:        
         self.impulseMatplotlibwidget.get_renderer().clear()
-        self.impulseAx.plot(filter,'g-')
+        self.impulseAx.plot(finalFilt,'g-')
         self.impulseAx.grid()
         self.impulseAx.draw(self.impulseMatplotlibwidget.get_renderer())
         self.impulseMatplotlibwidget.update()
       
         #calculate frequency response:
-        freq, response = signal.freqz(filter)
+        freq, response = signal.freqz(finalFilt)
         ampl = np.abs(response)
         
         #plot frequency response:

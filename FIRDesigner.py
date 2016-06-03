@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'E:\WinPython-64bit-3.5.1.3\notebooks\FIRDesigner.ui'
+# Form implementation generated from reading ui file 'FIRDesigner.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #
@@ -208,7 +208,7 @@ class Ui_MainWindow(object):
         self.tapsSpinBox.setProperty("value", 97)
         self.tapsSpinBox.setObjectName(_fromUtf8("tapsSpinBox"))
         self.sampleRateDoubleSpinBox = QtGui.QDoubleSpinBox(self.centralwidget)
-        self.sampleRateDoubleSpinBox.setGeometry(QtCore.QRect(370, 10, 81, 22))
+        self.sampleRateDoubleSpinBox.setGeometry(QtCore.QRect(840, 10, 81, 22))
         self.sampleRateDoubleSpinBox.setDecimals(3)
         self.sampleRateDoubleSpinBox.setMinimum(0.0)
         self.sampleRateDoubleSpinBox.setMaximum(1000000000.0)
@@ -236,6 +236,13 @@ class Ui_MainWindow(object):
         self.band4Label = QtGui.QLabel(self.centralwidget)
         self.band4Label.setGeometry(QtCore.QRect(843, 76, 46, 13))
         self.band4Label.setObjectName(_fromUtf8("band4Label"))
+        self.linPhaseRadioButton = QtGui.QRadioButton(self.centralwidget)
+        self.linPhaseRadioButton.setGeometry(QtCore.QRect(290, 10, 82, 21))
+        self.linPhaseRadioButton.setChecked(True)
+        self.linPhaseRadioButton.setObjectName(_fromUtf8("linPhaseRadioButton"))
+        self.minPhaseRadioButton = QtGui.QRadioButton(self.centralwidget)
+        self.minPhaseRadioButton.setGeometry(QtCore.QRect(380, 10, 111, 21))
+        self.minPhaseRadioButton.setObjectName(_fromUtf8("minPhaseRadioButton"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 21))
@@ -300,7 +307,7 @@ class Ui_MainWindow(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">// FIR Coefficients</p></body></html>", None))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">// FIR Coefficients</span></p></body></html>", None))
         self.tapsSpinBox.setToolTip(_translate("MainWindow", "Number of taps", None))
         self.sampleRateDoubleSpinBox.setToolTip(_translate("MainWindow", "<html><head/><body><p>Sampling rate</p><p>(This is only used to scale the the frequency response graph\'s frequency axis.)</p><p><br/></p></body></html>", None))
         self.calculatePushButton.setToolTip(_translate("MainWindow", "calculate FIR coefficients", None))
@@ -310,6 +317,8 @@ class Ui_MainWindow(object):
         self.band2Label.setText(_translate("MainWindow", "Band 2", None))
         self.band3Label.setText(_translate("MainWindow", "Band 3", None))
         self.band4Label.setText(_translate("MainWindow", "Band 4", None))
+        self.linPhaseRadioButton.setText(_translate("MainWindow", "Linear Phase", None))
+        self.minPhaseRadioButton.setText(_translate("MainWindow", "Minimum Phase", None))
         self.menuPrototypes.setTitle(_translate("MainWindow", "Prototypes", None))
         self.actionLowpass.setText(_translate("MainWindow", "Lowpass", None))
         self.actionHighpass.setText(_translate("MainWindow", "Highpass", None))

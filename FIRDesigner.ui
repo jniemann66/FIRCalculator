@@ -624,7 +624,7 @@ border-width: 0px;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;// FIR Coefficients&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;// FIR Coefficients&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="acceptRichText">
      <bool>false</bool>
@@ -655,7 +655,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QDoubleSpinBox" name="sampleRateDoubleSpinBox">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>840</x>
       <y>10</y>
       <width>81</width>
       <height>22</height>
@@ -768,6 +768,35 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="text">
      <string>Band 4</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="linPhaseRadioButton">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>10</y>
+      <width>82</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Linear Phase</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="minPhaseRadioButton">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>10</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Minimum Phase</string>
     </property>
    </widget>
   </widget>
