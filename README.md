@@ -2,6 +2,8 @@
 
 FIR filter design tool by Judd Niemann
 
+![Screenshot](https://github.com/jniemann66/FIRCalculator/blob/master/pictures/screenshot1.jpg)
+
 ## Synopsis
 ********
 FIRCalculator is a basic DSP Filter designer written in Python, which uses the[ Parks-McClellan/Remez Exhange algorithm ](https://en.wikipedia.org/wiki/Parks%E2%80%93McClellan_filter_design_algorithm)to produce FIR coefficients for use in digital filtering applications.
