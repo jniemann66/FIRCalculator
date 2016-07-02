@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{c985527f-82d4-4559-8a55-5d450149d0d9}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>FIRcalculator.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="build\FIRcalculator\warnFIRcalculator.txt" />
+    <Content Include="HowToBuild.txt" />
+    <Content Include="pictures\screenshot1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FIRcalculator.py" />
+    <Compile Include="FIRDesigner.py" />
+    <Compile Include="other_dlls\machar.py" />
+    <Compile Include="other_dlls\memmap.py" />
+    <Compile Include="other_dlls\numeric.py" />
+    <Compile Include="other_dlls\numerictypes.py" />
+    <Compile Include="other_dlls\records.py" />
+    <Compile Include="other_dlls\setup.py" />
+    <Compile Include="other_dlls\setup_common.py" />
+    <Compile Include="other_dlls\shape_base.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="build\" />
+    <Folder Include="build\FIRcalculator" />
+    <Folder Include="other_dlls" />
+    <Folder Include="pictures" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>

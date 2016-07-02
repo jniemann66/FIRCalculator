@@ -20,7 +20,7 @@ The program source consists of two python files,
 
 **FIRCalculator.py** : The main part of the app
 
-**FIRDesigner.py** : The graphical user interface. It's an automatically-generated file conatining all the UI elements, which is the direct output from converting **FIRDesigner.ui** (a Qt designer file) into a python script using the pyuic4 utility
+**FIRDesigner.py** : The graphical user interface. It's an automatically-generated file containing all the UI elements, which is the direct output from converting **FIRDesigner.ui** (a Qt designer file) into a python script using the pyuic4 utility
 
 The ui is designed by editing the **FIRdesigner.ui** file in Qt designer.
 

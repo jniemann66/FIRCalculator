@@ -110,7 +110,7 @@ class MainWindow(QtGui.QMainWindow, mw):
             return
         
         if self.minPhaseRadioButton.isChecked():
-            fftsize = 8192 # needs to be fairly generous for good results !
+            fftsize = 32768 # needs to be fairly generous for good results !
             maxphaseFilter=np.real(np.fft.ifft(np.exp(signal.hilbert(np.real(np.log(np.fft.fft(filt,fftsize)))))))
             minphaseFilter=maxphaseFilter[::-1] # reverse
             finalFilt=minphaseFilter[0:self.tapsSpinBox.value()-1]
